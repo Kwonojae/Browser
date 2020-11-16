@@ -18,7 +18,15 @@
     <div class="tag">Window Size</div>
     <script>
         //string template(``백틱기호):텍스트와 변수를 함께 쓸수있음
+        //window.screen: 모니터 해상도 브라우저 바깥에 있는 아이들까지 다합한거
+        //window.outer.width,height: 브라우저에 있는 URl,탭 전체적인 브라우저의 사이즈
+        //window.innerWidth: 웹페이지 스크롤바가 있다면 그 스크롤바가 표기되는 그 모든 것을 합한 페이지가 표기되는 전체
+        //clientWidth,Height: 문서 자체를 의미함 즉 전체적인 페이지이긴한데 스크롤바를 제외한 영역 사이즈 
         const tag = document.querySelector('.tag');
+        /*
+            닷(.)클래스의 selector인 닷을 이용해서 tag를작성하게 되면 dom요소중에 클래스가 
+            tag인 아이가 첫번째로 발견되는tag인 아이가 여기 tag변수에 할당됨 즉여긴 div를 가리킴
+        */
         function updateTag() {
             tag.innerHTML = `
             window.screen: ${window.screen.width}, ${window.screen.height} <br/>
