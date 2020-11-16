@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: black;
+            /* overflow: hidden;문서의 내용이 window보다 벗어나게 되면 보이지 않도록 만들어줌 */
+        }
+
+        div {
+            width: 250px;
+            height: 250px;
+            background-color: blanchedalmond;
+            margin-bottom: 4px;
+            border-radius: 4px;
+        }
+        .special {
+            background-color: chartreuse;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinates</title>
+</head>
+<body">
+    <!-- Coordinates 좌표 -->
+    <!-- Element.getBoundingClientRect() 
+    Element 오브젝트 안에 들어있는 API 즉 함수
+    image Element.getBoundingClientRect():요소의 사이즈나 위치에 관련된 정보가나옴
+    Javascript에서는 왼쪽 
+-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="special"></div>
+    <div></div>
+    
+    <script>
+        const special = document.querySelector('.special');
+        special.addEventListener('click',(event) => {
+            const rect = special.getBoundingClientRect();
+            console.log(rect);
+            //clientX,y:  브라우저 페이지에서의 X좌표 위치를 반환하나 스크롤은 무시하고 해당 페이지의 상단을 0으로 측정합니다.
+            console.log(`client: ${event.clientX}, ${event.clientY}`);
+            //pageX,y: 전체 문서를 기준으로 x,y 좌표를 반환 합니다. 스크롤 화면을 포함해서 측정합니다.
+            console.log(`page: ${event.pageX}, ${event.pageY}`);
+        });
+           
+        
+    </script>
+
+</body>
+</html>
