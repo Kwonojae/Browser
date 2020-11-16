@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Size</title>
+    <style>
+        .tag {
+            display: inline-block;
+            background-color: thistle;
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tag">Window Size</div>
+    <script>
+        //string template(``백틱기호):텍스트와 변수를 함께 쓸수있음
+        const tag = document.querySelector('.tag');
+        function updateTag() {
+            tag.innerHTML = `
+            window.screen: ${window.screen.width}, ${window.screen.height} <br/>
+            window.outer: ${window.outerWidth}, ${window.outerHeight} <br/>
+            window.inner: ${window.innerWidth}, ${window.innerHeight} <br/>
+            documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}
+            `;
+        }
+        window.addEventListener('resize', () => {       
+           //tag의 innerHTML을 이것으로 계속 교체해주는 작업함 
+            updateTag();    //사이즈가 변경이 될때만 호출이됨
+        });
+        //페이지가 처음에 로딩이되면 실행됨      
+        updateTag(); 
+           
+    </script>
+</body>
+</html>
