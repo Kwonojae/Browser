@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="test.js" defer></script>
+
+</head>
+<body>
+    <script>
+        //javascript에서는 callback 함수는 다른 함수의 매개변수로 함수를 전달하고, 
+        //어떠한 이벤트가 발생한 후 매개변수로 전달한 함수가 다시 호출되는 것을 의미합니다.
+   
+         //only document
+         //defer옵션이나 DomContentLoaded라는 이벤트는 html만 완료가 되면 호출이된다
+         //페이지 안에 리소스가 많으면 load는 조금나중에 호출이됨
+         //조금더 빠르게 사용자가 빠르게 볼수있는 장점이 있음
+        window.addEventListener('DomContentLoaded', () => {
+            console.log('DomContentLoaded');
+        })
+        
+        //after resourcee (css, images)
+        window.addEventListener('load', () =>{ 
+            console.log('load');    //모든 리소스가 다 다운로드 된다음에 이벤트발생
+        });
+
+        //before unload 사용자가 페이지를 나갈때 불려지는 함수
+        window.addEventListener('beforeunload', () =>{ 
+            console.log('beforeunload');    //
+        });
+
+        // resource is being unloaded  리소스가 다 언로드 되었을때 호출
+        window.addEventListener('unload', () =>{ 
+            console.log('unload');    //
+        });
+
+    </script>
+</body>
+</html>
