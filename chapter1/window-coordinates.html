@@ -67,10 +67,10 @@
             window.scrollBy({ top:100, left:0, behavior:'smooth'});
         });
         scrollTo.addEventListener('click', () => {
-            window.scrollTo(0, 100);
+            window.scrollTo({top:0, left:100, behavior:'smooth'});
         });
         scrollInto.addEventListener('click', () => {
-            special.scrollIntoView();
+            special.scrollIntoView({behavior:'smooth'});
         });
 
         const special = document.querySelector('.special');

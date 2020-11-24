@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div>마우스를 올려보세요</div>
+    <div  id="result" style="position: absolute;"></div>
+    <script>
+        if(document.addEventListener) {
+            document.addEventListener("mousemove",resultFun,false);
+        } else if (document.addEventListener) {
+            document.addEventListener("onmousemove",resultFun);
+        } else {
+            document.onmousemove = resultFun;
+        }
+
+        function resultFun(x) {
+            var xY = x.clientX + "*" + x.clientY;
+            var positionLeft = x.clientX;
+            var positionTop = x.clientY;
+            document.getElementById('result').innerHTML = xY;
+            document.getElementById('result').style.left = positionLeft + "px";
+            document.getElementById('result').style.top = positionTop + "px";
+        }
+    </script>
+</body>
+</html>
